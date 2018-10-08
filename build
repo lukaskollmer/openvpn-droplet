@@ -178,6 +178,7 @@ then
 
     # copy client1.ovpn to /root
     cp /etc/openvpn/easy-rsa/keys/$client.ovpn /root/$client.ovpn
+    cp /etc/openvpn/easy-rsa/keys/$client.ovpn ./$client.ovpn
 
     # increment $client loop by 1
     i=$(($i + 1))
