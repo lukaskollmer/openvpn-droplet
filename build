@@ -14,7 +14,8 @@ certqty=''
 # check if certificate quantity was already specified, otherwise specify it
 if [ -z "$certqty" ];
   then
-    read -p "How many client certificates will you need?: " certqty
+    #read -p "How many client certificates will you need?: " certqty
+    certqty=2
     if ! [[ "$certqty" =~ ^[0-9]+$ ]];
       then
         echo '===================================================='
@@ -131,7 +132,8 @@ then
 
   # define IP address of server
   #ip=$(ip addr | grep 'state UP' -A2 | tail -n1 | awk '{print $2}' | cut -f1  -d'/')
-  read -p "server ip: " ip
+  #read -p "server ip: " ip
+  ip=`curl -s https://ipinfo.io/ip`
 
   # loop to generate client certificates (based on $certqty)
   i=1
